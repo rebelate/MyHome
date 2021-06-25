@@ -1,4 +1,4 @@
-package com.myhome;
+package com.lite.myhome;
 
 import com.facebook.react.ReactActivity;
 
