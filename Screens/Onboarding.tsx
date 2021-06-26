@@ -2,7 +2,7 @@ import {Image} from 'react-native';
 import React from 'react';
 import Onboarding from 'react-native-onboarding-swiper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import TextAnimator from '../animation/TextAnimator';
 const saveData = async () => {
   try {
     await AsyncStorage.setItem('onBoarded', JSON.stringify({onboard: false}));
@@ -27,7 +27,12 @@ const Intro = ({navigation: {replace}}) => (
         backgroundColor: '#fff',
         image: <Image source={{uri: 'http'}} />,
         title: 'Onboarding',
-        subtitle: 'Done with React Native Onboarding Swiper',
+        subtitle: (
+          <TextAnimator
+            content="For the things we have to learn before we can do them, we learn by doing them. ️️️️️️REACT NATIVE ❤️️️️"
+            duration={500}
+          />
+        ),
       },
       {
         backgroundColor: '#fe6e58',
