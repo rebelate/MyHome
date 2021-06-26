@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Intro from './Screens/Onboarding';
 import {default as storage} from '@react-native-async-storage/async-storage';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {observable} from 'mobx';
 import {observer} from 'mobx-react';
 
@@ -42,18 +43,20 @@ function App() {
     );
   } else
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          {config && (
-            <Stack.Screen
-              options={{headerShown: false}}
-              name="Onboarding"
-              component={Intro}
-            />
-          )}
-          <Stack.Screen name="Main" component={HomeScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            {config && (
+              <Stack.Screen
+                options={{headerShown: false}}
+                name="Onboarding"
+                component={Intro}
+              />
+            )}
+            <Stack.Screen options={{}} name="Main" component={HomeScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
     );
 }
 
