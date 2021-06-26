@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ActivityIndicator} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Intro from './Screens/Onboarding';
@@ -26,22 +26,21 @@ function App() {
       const val = result != null ? JSON.parse(result) : null;
       const state = val != null ? val.onboard : true;
       setConfig(state);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 100);
     });
-  });
+  }, []);
 
   if (isLoading) {
     return (
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Text>Loading...</Text>
-      </View>
+      <ActivityIndicator
+        size="large"
+        style={{flex: 1, justifyContent: 'center'}}
+        color={'#000'}
+      />
     );
-  } else {
+  } else
     return (
       <NavigationContainer>
         <Stack.Navigator>
@@ -56,7 +55,6 @@ function App() {
         </Stack.Navigator>
       </NavigationContainer>
     );
-  }
 }
 
 export default App;
