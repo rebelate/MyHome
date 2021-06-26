@@ -47,7 +47,7 @@ function App() {
         <Stack.Navigator>
           {config && (
             <Stack.Screen
-              options={{headerLeft: () => null}}
+              options={{headerShown: false}}
               name="Onboarding"
               component={Intro}
             />
