@@ -44,15 +44,7 @@ export default class TextAnimator extends React.Component<Props> {
       });
     });
 
-    Animated.stagger(
-      this.props.duration / 5,
-      toValue === 0 ? animations.reverse() : animations,
-    ).start(() => {
-      setTimeout(() => this.animated(toValue === 0 ? 1 : 0), 1000);
-      if (this.props.onDone) {
-        this.props.onDone();
-      }
-    });
+    Animated.stagger(this.props.duration / 6, animations).start();
   };
 
   render() {

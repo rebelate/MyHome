@@ -20,6 +20,8 @@ function done(replace) {
 const Intro = ({navigation: {replace}}) => (
   <>
     <Onboarding
+      showSkip={false}
+      showNext={false}
       onDone={() => {
         done(replace);
       }}
@@ -27,11 +29,22 @@ const Intro = ({navigation: {replace}}) => (
         {
           backgroundColor: '#fff',
           image: <Image source={{uri: 'http'}} />,
-          title: 'Onboarding',
+          title: (
+            <TextAnimator
+              textStyle={{
+                textAlign: 'center',
+                fontSize: 25,
+                paddingBottom: 5,
+              }}
+              content="Welcome"
+              duration={500}
+            />
+          ),
           subtitle: (
             <TextAnimator
-              content="For the things we have to learn before we can do them, we learn by doing them. ️️️️️️REACT NATIVE ❤️️️️"
-              duration={500}
+              content="Before you start playing with your lamp on and off, 
+              you need to configure the app"
+              duration={800}
             />
           ),
         },
