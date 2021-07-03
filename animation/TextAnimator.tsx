@@ -33,7 +33,6 @@ export default class TextAnimator extends React.Component<Props> {
 
   componentDidMount() {
     this.animated();
-    console.log('tes');
   }
 
   animated = (toValue = 1) => {
